@@ -28,11 +28,13 @@ Load balancing ensures that the application will be highly available, in additio
 > Load balancing is the process of distributing incoming reequests/tasks over a set of resources in order to prevent skew of overload of requests towards one specific resource for instance a server. For example, this can be particularly useful in maintaining availability of services to customers in the setting of a DoS attack on a server rendering it inavailable. If the same services are available on an alternate server, the load balancer can distribute the web traffic to the alternate server when the primary server is 'overloaded' - this way the services (such as sales) continue to remain operational even in the mist of the attack. In addition it can also be configured to limit access to particular servers to prevent penetration by hackers. 
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the files, logs and system metrics.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+
+> **Filebeat** collects data about the file system. Helpful in detecting changes to certain important files like for example etc/passwd
+
+> **Metcicbeat** Collects metrics to help with the assessment about the operational state of computer machines on the network (VMs in this case). For example it can be helpful in determining CPU usage and Uptime information. 
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
+
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
