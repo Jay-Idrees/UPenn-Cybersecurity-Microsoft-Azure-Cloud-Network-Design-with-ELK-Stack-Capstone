@@ -27,7 +27,7 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
 
-> Load balancing is the process of distributing incoming reequests/tasks over a set of resources in order to prevent skew of overload of requests towards one specific resource for instance a server. For example, this can be particularly useful in maintaining availability of services to customers in the setting of a DoS attack on a server rendering it inavailable. If the same services are available on an alternate server, the load balancer can distribute the web traffic to the alternate server when the primary server is 'overloaded' - this way the services (such as sales) continue to remain operational even in the mist of the attack. In addition it can also be configured to limit access to particular servers to prevent penetration by hackers. 
+> **Load balancing** is the process of distributing incoming reequests/tasks over a set of resources in order to prevent skew of overload of requests towards one specific resource for instance a server. For example, this can be particularly useful in maintaining availability of services to customers in the setting of a DoS attack on a server rendering it inavailable. If the same services are available on an alternate server, the load balancer can distribute the web traffic to the alternate server when the primary server is 'overloaded' - this way the services (such as sales) continue to remain operational even in the mist of the attack. In addition it can also be configured to limit access to particular servers to prevent penetration by hackers. 
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the files, logs and system metrics.
 
@@ -41,9 +41,9 @@ The configuration details of each machine may be found below.
 | Name     | Function     | IP Address | Operating System |
 |----------|--------------|------------|------------------|
 | Jump Box | Gateway      | 10.0.0.4   |    Linux         |
-| Web-1    | Webserver    | 10.0.0.5   |    Linux         |
-| Web-2    | Webserver    | 10.0.0.6   |    Linux         |                  
-| Web-3    | Webserver    | 10.0.0.7   |    Linux         |                  
+| Web-1    | server       | 10.0.0.5   |    Linux         |
+| Web-2    | server       | 10.0.0.6   |    Linux         |                  
+| Web-3    | server       | 10.0.0.7   |    Linux         |                  
 | ELK      | Monitoring   | 10.1.0.4   |    Linux         |
 
 
