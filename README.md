@@ -63,7 +63,7 @@ A summary of the access policies in place can be found in the table below.
 | Name     | Publicly Accessible | Allowed IP Addresses         |
 |----------|---------------------|------------------------------|
 | Jump-Box |     Yes             | Admin's IP address via ssh   |
-| Web-1    |     No, only via JB | 10.0.0.1-254                 |
+| Web-1    |     No, Only via JB | 10.0.0.1-254                 |
 | Web-2    |     No, Only via JB | 10.0.0.1-254                 |
 | Web-3    |     No, Only via JB | 10.0.0.1-254                 |
 | ELK      |     No, Only via JB | 10.0.0.1-254                 |
