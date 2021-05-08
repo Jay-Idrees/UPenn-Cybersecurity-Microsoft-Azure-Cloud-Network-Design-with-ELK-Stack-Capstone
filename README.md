@@ -42,7 +42,7 @@ The configuration details of each machine may be found below.
 | Web-1    | Webserver |             |                  |
 | Web-2    | Webserver |      |            |                  |
 | Web-3    | Webserver |      |            |                  |
-| Web-4    | ELK
+| ELK      | Monitoring
 
 
 ### Access Policies
