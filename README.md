@@ -8,10 +8,10 @@
 ---
 The files in this repository were used to configure the network depicted below.
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the `Filebeat-playbook.yml`  file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the `install-Filebeat.yml`  file may be used to install only certain pieces of it, such as Filebeat.
 
-- filebeat-playbook.yml
-- metricbeat-playbook.yml
+- install-filebeat.yml
+- install-metricbeat.yml
 - install-elk.yml
 
 This document contains the following details:
@@ -113,8 +113,8 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 - Copy the  **`install-elk.yml`** file to Ansible container folder **`/etc/ansible/files/`**
 - Update the hosts file **`/etc/ansible/hosts`** to include **`ELK server IP address: 10.1.0.4`**
-- Run the playbook **`elk-playbook.yml`**, and navigate to **`/etc/ansible/http://<VM IP>/:5601`** to check that the installation worked as expected.
-- The playbook file is **`elk-playbook.yml`** and its copied in **`/etc/ansible`**
+- Run the playbook **`install-elk.yml`**, and navigate to **`/etc/ansible/http://<VM IP>/:5601`** to check that the installation worked as expected.
+- The playbook file is **`install-elk.yml`** and its copied in **`/etc/ansible`**
 - Updating the host file will make Ansible run the playbook on a specific machine 
 - By adding a private IP under "servers" you can specify which machine to install and the ELK server on vs filebeat
 - The URL to navigate to in order to check ELK server **`<VM IP>.49:5601`**
