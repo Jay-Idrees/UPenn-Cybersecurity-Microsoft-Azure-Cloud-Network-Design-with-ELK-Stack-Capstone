@@ -61,11 +61,14 @@ Machines within the network can only be accessed by **Jump-Box**.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses          |
-|----------|---------------------|----------------------         |
-| Jump Box |     No              | Admin Public IP address       |
-| ELK      |     Port 5601       |   External IP                 |
-| Web-1    |     yes             | via Load balancer 13.90.36.91 |
+| Name     | Publicly Accessible | Allowed IP Addresses         |
+|----------|---------------------|------------------------------|
+| Jump-Box |     Yes             | Admin's IP address via ssh   |
+| Web-1    |     No, only via JB | 10.0.0.1-254                 |
+| Web-2    |     No, Only via JB | 10.0.0.1-254                 |
+| Web-3    |     No, Only via JB | 10.0.0.1-254                 |
+| ELK      |     No, Only via JB | 10.0.0.1-254                 |
+
 
 
 ### Elk Configuration
@@ -84,7 +87,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![](Docker-ps.png)
 
 
 ### Target Machines & Beats
