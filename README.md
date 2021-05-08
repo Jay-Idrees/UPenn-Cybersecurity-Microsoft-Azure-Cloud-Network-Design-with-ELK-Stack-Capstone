@@ -38,8 +38,8 @@ The configuration details of each machine may be found below.
 
 | Name     | Function  | IP Address | Operating System |
 |----------|---------- |------------|------------------|
-| Jump Box | Gateway   | 10.0.0.1   | Linux            |
-| Web-1    | Webserver |             |                  |
+| Jump Box | Gateway   | 10.0.0.4   | Linux            |
+| Web-1    | Webserver |          |                  |
 | Web-2    | Webserver |      |            |                  |
 | Web-3    | Webserver |      |            |                  |
 | ELK      | Monitoring
