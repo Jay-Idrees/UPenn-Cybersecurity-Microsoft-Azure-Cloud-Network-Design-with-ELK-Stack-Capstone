@@ -1,0 +1,33 @@
+---
+  - name: Config Web VM with Docker
+    hosts: ElkServer
+    become: true
+    tasks:
+
+    - name: Install Docker.io
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Install PIP
+      apt:
+        name: python-pip
+        state: present
+
+    - name: Install Docker python module
+      pip:
+        name: docker
+        state: present
+
+    - name: download and launch a docker elk container
+      docker_container:
+        name: elk
+        image: sebp/elk
+        state: started
+        published_ports:
+          - 5601:5601
+          - 9200:9200
+          - 5044:5044
+
+    - name: to increase the memory
+      command: sysctl -w vm.max_map_count=262144
