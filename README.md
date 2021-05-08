@@ -29,7 +29,7 @@ Load balancing ensures that the application will be highly available, in additio
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the files, logs and system metrics.
 
-> **Filebeat** collects data about the file system. Helpful in detecting changes to certain important files like for example etc/passwd
+> **Filebeat** collects data about the file system. Helpful in detecting changes to certain important files stampd by time like for example if a hacker attemps to chenge etc/passwd and this information is then sent to Elasticsearch on the ELK Server
 
 > **Metcicbeat** Collects metrics to help with the assessment about the operational state of computer machines on the network (VMs in this case). For example it can be helpful in determining CPU usage and Uptime information. 
 
