@@ -20,9 +20,9 @@ This document contains the following details:
   - Machines Being Monitored
 - How to Use the Ansible Build
 
-
+---
 ### Description of the Topology
-
+---
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA (D*mn Vulnerable Web Application)
 
 Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
@@ -40,15 +40,15 @@ The configuration details of each machine may be found below.
 
 | Name     | Function     | IP Address | Operating System |
 |----------|--------------|------------|------------------|
-| Jump Box | Gateway      | 10.0.0.4   |    Linux         |
+| Jump-Box | Gateway      | 10.0.0.4   |    Linux         |
 | Web-1    | Server       | 10.0.0.5   |    Linux         |
 | Web-2    | Server       | 10.0.0.6   |    Linux         |                  
 | Web-3    | Server       | 10.0.0.7   |    Linux         |                  
 | ELK      | Monitoring   | 10.1.0.4   |    Linux         |
 
-
+---
 ### Access Policies
-
+---
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the **Jump-box** machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
@@ -65,8 +65,9 @@ A summary of the access policies in place can be found in the table below.
 | ELK      |     Port 5601       |   External IP                 |
 | Web-1    |     yes             | via Load balancer 13.90.36.91 |
 
+---
 ### Elk Configuration
-
+---
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because:
 
  > It simplifies the process of configuring additional machines or updating changes to all existing ones to the network simultaneously. We will only have to make changes to the ansible playbook and it will automatically be implemented to all the machines linked with the playbook. Alternatively if we do not use the playbook then we will have to make configuration changes to all of the machines individually which can be cumbersome and error prone
@@ -82,8 +83,9 @@ The playbook implements the following tasks:
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
 ![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
-
+---
 ### Target Machines & Beats
+---
 This ELK server is configured to monitor the following machines on which `filebeat` and `metricbeat` are installed:
 - Web-2
 - Web-3
@@ -97,8 +99,10 @@ These Beats allow us to collect the following information from each machine:
 > **Filebeat** collects data about the file system. Helpful in detecting changes to certain important files stampd by time like for example if a hacker attemps to chenge etc/passwd and this information is then sent to Elasticsearch on the ELK Server
 
 > **Metcicbeat** Collects metrics to help with the assessment about the operational state of computer machines on the network (VMs in this case) and then sends it to Elasticsearch on ELK For example it can be helpful in determining CPU usage, memory sisk IO, Network UO and Uptime information. 
-
+---
 ### Using the Playbook
+---
+
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
