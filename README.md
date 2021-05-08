@@ -113,13 +113,10 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the  **install-elk.yml** file to Ansible container folder **/etc/ansible/files/**
-- Update the hosts file to include **ELK SERVER IP address: 10.0.9.4**
-- Run the playbook **elk-playbook.yml**, and navigate to **/etc/ansible/http://52.149.38.49/:5601** to check that the installation worked as expected.
-
-
+- Update the hosts file `/etc/ansible/hosts` to include **ELK server IP address: 10.1.0.4**
+- Run the playbook **elk-playbook.yml**, and navigate to **/etc/ansible/http://<VM IP>/:5601** to check that the installation worked as expected.
 - The playbook file is **elk-playbook.yml** and its copied in **/etc/ansible**
 - Updating the host file will make Ansible run the playbook on a specific machine 
 - By adding a private IP under "servers" you can specify which machine to install and the ELK server on vs filebeat
-- The URL to navigate to in order to check ELK server **52.149.38.49:5601**
+- The URL to navigate to in order to check ELK server **<VM IP>.49:5601**
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
