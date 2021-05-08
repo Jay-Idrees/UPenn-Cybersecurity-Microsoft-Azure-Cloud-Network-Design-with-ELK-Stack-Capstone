@@ -36,12 +36,14 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 The configuration details of each machine may be found below.
 
 
-| Name     | Function | IP Address | Operating System |
-|----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| Web-1    | Webserver      |            |                  |
-| Web-2     |          |            |                  |
-| Web-3     |          |            |                  |
+| Name     | Function  | IP Address | Operating System |
+|----------|---------- |------------|------------------|
+| Jump Box | Gateway   | 10.0.0.1   | Linux            |
+| Web-1    | Webserver |             |                  |
+| Web-2    | Webserver |      |            |                  |
+| Web-3    | Webserver |      |            |                  |
+| Web-4    | ELK
+
 
 ### Access Policies
 
@@ -55,11 +57,11 @@ Machines within the network can only be accessed by **Jump-Box**.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Name     | Publicly Accessible | Allowed IP Addresses          |
+|----------|---------------------|----------------------         |
+| Jump Box |     No              | Admin Public IP address       |
+| ELK      |     Port 5601       |   External IP                 |
+| Web-1    |     yes             | via Load balancer 13.90.36.91 |
 
 ### Elk Configuration
 
@@ -73,7 +75,7 @@ The playbook implements the following tasks:
 - Installs Python-pip
 - Installs Docker python module
 - Increases virtual memory
-- _Downloads and launches a docker ELK container with the ports `5601`, `9200`, `5044`
+- Downloads and launches a docker ELK container with the ports `5601`, `9200`, `5044`
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
