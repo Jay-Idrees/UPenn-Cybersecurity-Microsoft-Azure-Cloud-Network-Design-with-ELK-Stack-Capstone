@@ -31,7 +31,7 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 
 > **Filebeat** collects data about the file system. Helpful in detecting changes to certain important files stampd by time like for example if a hacker attemps to chenge etc/passwd and this information is then sent to Elasticsearch on the ELK Server
 
-> **Metcicbeat** Collects metrics to help with the assessment about the operational state of computer machines on the network (VMs in this case). For example it can be helpful in determining CPU usage and Uptime information. 
+> **Metcicbeat** Collects metrics to help with the assessment about the operational state of computer machines on the network (VMs in this case) and then sends it to Elasticsearch on ELK For example it can be helpful in determining CPU usage, memory sisk IO, Network UO and Uptime information. 
 
 The configuration details of each machine may be found below.
 
@@ -39,9 +39,9 @@ The configuration details of each machine may be found below.
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
 | Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+| Web-1    | Webserver      |            |                  |
+| Web-2     |          |            |                  |
+| Web-3     |          |            |                  |
 
 ### Access Policies
 
@@ -68,35 +68,44 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
  > It simplifies the process of configuring additional machines or updating changes to all existing ones to the network simultaneously. We will only have to make changes to the ansible playbook and it will automatically be implemented to all the machines linked with the playbook. Alternatively if we do not use the playbook then we will have to make configuration changes to all of the machines individually which can be cumbersome and error prone
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+
+- Installs Docker, which intern facilitates instalation of containers
+- Installs Python-pip
+- Installs Docker python module
+- Increases virtual memory
+- _Downloads and launches a docker ELK container with the ports `5601`, `9200`, `5044`
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
 ![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
 
 ### Target Machines & Beats
-This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+This ELK server is configured to monitor the following machines on which `filebeat` and `metricbeat` are installed:
+- Web-2
+- Web-3
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- `filebeat`
+- `metricbeat`
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+
+> **Filebeat** collects data about the file system. Helpful in detecting changes to certain important files stampd by time like for example if a hacker attemps to chenge etc/passwd and this information is then sent to Elasticsearch on the ELK Server
+
+> **Metcicbeat** Collects metrics to help with the assessment about the operational state of computer machines on the network (VMs in this case) and then sends it to Elasticsearch on ELK For example it can be helpful in determining CPU usage, memory sisk IO, Network UO and Uptime information. 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the  **install-elk.yml** file to Ansible container folder **/etc/ansible/files/**
+- Update the hosts file to include **ELK SERVER IP address: 10.0.9.4**
+- Run the playbook **elk-playbook.yml**, and navigate to **/etc/ansible/http://52.149.38.49/:5601** to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+
+- The playbook file is **elk-playbook.yml** and its copied in **/etc/ansible**
+- Updating the host file will make Ansible run the playbook on a specific machine 
+- By adding a private IP under "servers" you can specify which machine to install and the ELK server on vs filebeat
+- The URL to navigate to in order to check ELK server **52.149.38.49:5601**
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
